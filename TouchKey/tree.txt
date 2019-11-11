@@ -1,0 +1,17 @@
+卷 User_Data 的文件夹 PATH 列表
+卷序列号为 1472-3234
+D:\HVACPROJECT\GE-TWHEEL\DEMO\MAIN_MCU\PROJECTCODE\01_APP\TOUCHKEY
+    TouchKey.c                         该文件用于处理触摸键事件。
+????TouchKey.h
+???? TouchKey_Cfg.c KEY                捕获和去抖动
+????TouchKey_Cfg.h
+???? TouchKey_Interface.c              KEY捕获和去抖动界面
+????TouchKey_Interface.h
+???? TouchKey_Private.h               该文件用于包含仅用于密钥模块的宏。
+???? TouchKey_Type.h                  该文件用于定义数据类型。
+	
+	
+    tree.txt
+    
+没有子文件夹 
+

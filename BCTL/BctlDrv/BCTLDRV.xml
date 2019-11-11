@@ -1,0 +1,12 @@
+<Project name="J72Y FATC">
+  <Module name="BCTLDRV">
+    <Group name="Rom" type="CONST">
+      <Table name="Voltage2PwmDuty">
+        <DataRow name="Volt2Pwm" type="au16" dimension="2" lenstr="Volt2Pwm_Len" count="9" data="0 408 560 708 850 1002 1148 1450 1530,0 236 336 440 540 640 744 944 1000" description="" phytype="鼓风机端电压(16bit),PWM(16bit)" names="TrgVolt,PwmDuty" />
+      </Table>
+      <Table name="FeedbcakVoltage">
+        <DataRow name="FbVolt" type="au16" dimension="2" lenstr="FbVolt_Len" count="9" data="20 236 336 440 540 640 744 944 1000,0 408 560 708 850 1002 1148 1450 1529" description="" phytype="温度(16bit500),温度(16bit500)" names="FbDigital,FbVolt" />
+      </Table>
+    </Group>
+  </Module>
+</Project>

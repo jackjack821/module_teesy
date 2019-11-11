@@ -1,0 +1,22 @@
+1.
+SBC_vMain();
+SBC_WDFeedDog();
+放在SYS_vFRAMEAlways（）中
+
+2.
+SBC_vReset()；
+放在系统Reset（）中；
+
+3.
+#define SBC_CAN_Enable  1
+#define SBC_LIN_Enable  1
+判断是否使用CAN/LIN
+
+4.
+SBC进入Standby 由SBC模块判断完成(CAN/LIN睡眠标志置1)，系统只需要判断SBC是否进入Standby 
+SBC_u16GetValue(SBC_nu16SYS_Status)==SBC_enCMD_SysStandby;
+
+5.系统进入Sleep，需要调用SBC_vToSleep（）；
+
+HAL_IoHwAb_Digital_Write(0x0A0F,0x00);
+

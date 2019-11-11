@@ -1,0 +1,12 @@
+<Project name="FE-5A7A">
+  <Module name="OAT">
+    <Group name="Group1" type="CONST">
+      <Table name="ModuleInfo">
+        <DataRow name="OatDiffHctToUpdate" type="au16" dimension="2" lenstr="OatDiffHctToUpdate_Len" count="4" data="350 500 650 800,600 500 400 300" description="" phytype="温度(16bit),绝对温度(16bit)" names="OatDiffHctToUpdate_X,OatDiffHctToUpdate_Y" />
+        <DataRow name="OatLimitHctToUpdate" type="au16" dimension="2" lenstr="OatLimitHctToUpdate_Len" count="4" data="350 500 650 800,600 700 800 900" description="" phytype="温度(16bit),温度(16bit)" names="OatLimitHctToUpdate_X,OatLimitHctToUpdate_Y" />
+        <DataRow name="OatSensorAmbient" type="au16" dimension="2" lenstr="OatSensorAmbient_Len" count="10" data="55 104 188 250 331 429 540 656 763 889,1200 1000 800 700 600 500 400 300 200 50" description="" phytype="传感器电压值(16bit),温度(16bit)" names="OatSensorAmbient_X,OatSensorAmbient_Y" />
+        <DataRow name="OatAqsPtaAmbient" type="au16" dimension="2" lenstr="OatAqsPtaAmbient_Len" count="10" data="80 203 355 456 569 682 785 868 929 984,1200 1000 800 700 600 500 400 300 200 50" description="" phytype="传感器电压值(16bit),温度(16bit)" names="OatAqsPtaAmbient_X,OatAqsPtaAmbient_Y" />
+      </Table>
+    </Group>
+  </Module>
+</Project>

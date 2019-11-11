@@ -1,0 +1,27 @@
+<Project name="BaseCode">
+  <Module name="CCS">
+    <Group name="Group1" type="CONST">
+      <Table name="ModuleInfo">
+        <DataRow name="VariableConst" type="u8" dimension="1" lenstr="" count="1" data="1" description="" phytype="Default8bit" names="VariableConst" />
+        <DataRow name="ChipType" type="u8" dimension="1" lenstr="" count="1" data="1" description="" phytype="Default8bit" names="ChipType" />
+      </Table>
+      <Table name="ModuleData">
+        <DataRow name="OatSetTempOffset_Tbl" type="au16" dimension="2" lenstr="OatSetTempOffset_Tbl_Len" count="6" data="50 250 400 550 750 800,665 660 655 650 645 640" description="" phytype="温度(16bit),温度补偿(16bit)" names="OatSetTempOffsetX_Tbl,OatSetTempOffsetY_Tbl" />
+        <DataRow name="OatBlowTempOffset_Tbl" type="au16" dimension="5" lenstr="OatBlowTempOffset_Tbl_Len" count="13" data="0 140 240 340 490 550 630 700 750 800 850 900 1000,1000 900 850 800 750 720 700 680 640 600 540 500 480,1000 950 900 820 780 760 740 700 640 600 560 540 500,900 880 860 800 780 760 740 700 650 610 590 550 520,900 860 800 780 740 700 660 620 600 590 580 555 530" description="" phytype="温差(16bit),温度补偿(16bit),温度补偿(16bit),温度补偿(16bit),温度补偿(16bit)" names="OatBlowTempOffsetX_Tbl,OatBlowTempOffsetY1_Tbl,OatBlowTempOffsetY2_Tbl,OatBlowTempOffsetY3_Tbl,OatBlowTempOffsetY4_Tbl" />
+        <DataRow name="OatBlowTempSpeedX_Tbl" type="au16" dimension="1" lenstr="OatBlowTempSpeedX_Tbl_Len" count="4" data="400 600 800 1100" description="" phytype="鼓风机端电压(16bit)" names="OatBlowTempSpeedX_Tbl" />
+        <DataRow name="SiBlowTempGain_Tbl" type="au16" dimension="5" lenstr="SiBlowTempGain_Tbl_Len" count="5" data="610 620 640 660 670,3 2 0 2 3,3 2 0 2 3,3 2 0 2 3,2 1 0 1 2" description="" phytype="温差(16bit),Default16bit,Default16bit,Default16bit,Default16bit" names="SiBlowTempGainX_Tbl,SiBlowTempGainY1_Tbl,SiBlowTempGainY2_Tbl,SiBlowTempGainY3_Tbl,SiBlowTempGainY4_Tbl" />
+        <DataRow name="BlowTempOatX_Tbl" type="au16" dimension="1" lenstr="BlowTempOatX_Tbl_Len" count="4" data="300 450 600 750" description="" phytype="温度(16bit)" names="BlowTempOatX_Tbl" />
+        <DataRow name="MmiToCcsSetTemp_Tbl" type="au16" dimension="2" lenstr="MmiToCcsSetTemp_Tbl_Len" count="9" data="560 580 600 620 640 660 680 700 720,530 560 590 620 650 680 710 740 770" description="" phytype="温度(16bit),温度(16bit)" names="MmiToCcsSetTempX_Tbl,MmiToCcsSetTempY_Tbl" />
+        <DataRow name="DrTsetBlowTempGain_Tbl" type="au16" dimension="5" lenstr="DrTsetBlowTempGain_Tbl_Len" count="7" data="500 560 600 640 680 720 780,0 0 0 0 0 0 0,0 0 0 0 0 0 0,0 0 0 0 0 0 0,0 0 0 0 0 0 0" description="" phytype="温差(16bit),Default16bit,Default16bit,Default16bit,Default16bit" names="DrTsetBlowTempGainX_Tbl,DrTsetBlowTempGainY1_Tbl,DrTsetBlowTempGainY2_Tbl,DrTsetBlowTempGainY3_Tbl,DrTsetBlowTempGainY4_Tbl" />
+        <DataRow name="PsTsetBlowTempGain_Tbl" type="au16" dimension="5" lenstr="PsTsetBlowTempGain_Tbl_Len" count="7" data="500 560 600 640 680 720 780,1 1 1 0 1 1 1,1 1 1 0 1 1 1,1 1 1 0 1 1 1,1 1 1 0 1 1 1" description="" phytype="温差(16bit),Default16bit,Default16bit,Default16bit,Default16bit" names="PsTsetBlowTempGainX_Tbl,PsTsetBlowTempGainY1_Tbl,PsTsetBlowTempGainY2_Tbl,PsTsetBlowTempGainY3_Tbl,PsTsetBlowTempGainY4_Tbl" />
+      </Table>
+      <Table name="Macro">
+        <DataRow name="OatHysteresis" type="u16" dimension="1" lenstr="" count="1" data="20" description="X Table:MMI_SetTempDr - Ps" phytype="绝对温度(16bit)" names="OatHysteresis" />
+        <DataRow name="SetTempLowForIct" type="u16" dimension="1" lenstr="" count="1" data="500" description="X Table:MMI_SetTempDr - Ps" phytype="温度(16bit)" names="SetTempLowForIct" />
+        <DataRow name="SetTempHighForIct" type="u16" dimension="1" lenstr="" count="1" data="800" description="X Table:MMI_SetTempDr - Ps" phytype="温度(16bit)" names="SetTempHighForIct" />
+        <DataRow name="BlowoutTempFilterK" type="u8" dimension="1" lenstr="" count="1" data="5" description="X Table:MMI_SetTempDr - Ps" phytype="Default8bit" names="BlowoutTempFilterK" />
+        <DataRow name="SetTempWeightDr" type="u8" dimension="1" lenstr="" count="1" data="1" description="X Table:MMI_SetTempDr - Ps" phytype="Default8bit" names="SetTempWeightDr" />
+      </Table>
+    </Group>
+  </Module>
+</Project>
