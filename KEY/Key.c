@@ -45,7 +45,7 @@
 #include "KEY.h"   
 #include "Rte_IoHwPortWrite.h"     
 
-static uint16 KEY_u16TestCnt=0;
+static int KEY_u16TestCnt=0;
 KEY_tstCalcSt KEY_stCalcSt[KeyNum];
 KEY_tstMainOut KEY_stMainOut;
 
@@ -73,7 +73,7 @@ void KEY_vReset (void)
 ************************************************************************************/
 void KEY_vInit (void)
 {	
-    uint8 i;
+    int i;
     for(i=0u;i<KeyNum;i++)
     {
         KEY_stCalcSt[i].enKeyCurrStatus=KEY_enReleased;
@@ -114,8 +114,8 @@ void KEY_vActive(void)
 *****************************************************************************/
 void KEY_vMain (void)
 {
-    uint8 i=0u;
-    uint8 u8ForceKeyPressValue;
+    int i=0u;
+    int u8ForceKeyPressValue;
 
 	KEY_u16TestCnt ++;
 
@@ -145,7 +145,7 @@ void KEY_vMain (void)
         }
         else
         {
-            KEY_stProperty[i].fpKeyGetStatus((uint16 *)&KEY_stCalcSt[i].enKeyCurrStatus);
+            KEY_stProperty[i].fpKeyGetStatus((int *)&KEY_stCalcSt[i].enKeyCurrStatus);
         }
         KEY_vPtsKeyPressImport(i,KEY_stCalcSt[i].enKeyCurrStatus);
         KEY_stCalcSt[i].u8KeyId=i;
@@ -178,8 +178,8 @@ void KEY_vCalcProccess(KEY_tstCalcSt *CalcInOut, KEY_tstCalcOut *ResultInOut)
 		CalcInOut->u8KeyValib=False;
 		CalcInOut->enKeyActionStatus=KEY_enReleased;
         CalcInOut->u16KeyBlockTmr=0u;
-        ResultInOut->u32KeyBlockTable&=~((uint32)1<<CalcInOut->u8KeyId);
-        ResultInOut->u32KeyOperationTable&=~((uint32)1<<CalcInOut->u8KeyId);
+        ResultInOut->u32KeyBlockTable&=~((int)1<<CalcInOut->u8KeyId);
+        ResultInOut->u32KeyOperationTable&=~((int)1<<CalcInOut->u8KeyId);
 
         if((CalcInOut->u8KeyReleaseActionPressTime>=KEY_stProperty[CalcInOut->u8KeyId].u8DebouncingTime)&&\
             (CalcInOut->u8KeyReleaseActionPressTime < KEY_stProperty[CalcInOut->u8KeyId].u8RepeatActivateTime))
@@ -258,25 +258,25 @@ void KEY_vCalcProccess(KEY_tstCalcSt *CalcInOut, KEY_tstCalcOut *ResultInOut)
             }
         }
         
-        ResultInOut->u32KeyOperationTable|=(uint32)1<<CalcInOut->u8KeyId;
+        ResultInOut->u32KeyOperationTable|=(int)1<<CalcInOut->u8KeyId;
         if(CalcInOut->u16KeyBlockTmr<KEY_stProperty[CalcInOut->u8KeyId].u16BlockTimeCfg)
         {
             CalcInOut->u16KeyBlockTmr++;            
         }
         else
         {
-            ResultInOut->u32KeyBlockTable|=(uint32)1<<CalcInOut->u8KeyId;
+            ResultInOut->u32KeyBlockTable|=(int)1<<CalcInOut->u8KeyId;
         }
     }
 
 	if(CalcInOut->u8KeyValib>0u)
 	{
 		CalcInOut->u8KeyValib--;
-		ResultInOut->u32KeyActionTable|=(uint32)1<<CalcInOut->u8KeyId;
+		ResultInOut->u32KeyActionTable|=(int)1<<CalcInOut->u8KeyId;
 	}
     else
     {
-        ResultInOut->u32KeyActionTable&=~((uint32)1<<CalcInOut->u8KeyId);
+        ResultInOut->u32KeyActionTable&=~((int)1<<CalcInOut->u8KeyId);
     }
 }
 /*****************************************************************************
@@ -287,22 +287,22 @@ void KEY_vCalcProccess(KEY_tstCalcSt *CalcInOut, KEY_tstCalcOut *ResultInOut)
 *****************************************************************************/
 void KEY_vKeyPriorityCalc(KEY_tstPriorityCalcIn *Input, KEY_tstPriorityCalcOut *Output)
 {
-    uint8 i,j;
+    int i,j;
 
     Output->u32KeyActionTable=Input->u32KeyActionTable;
     for(i=0u;i<KeyNum;i++)
     {
-        if((Input->u32KeyActionTable&((uint32)1<<i))>0)/*check the action key*/            
+        if((Input->u32KeyActionTable&((int)1<<i))>0)/*check the action key*/            
         {
             for(j=0u;j<KeyNum;j++)
             {
-                if(((Input->u32KeyOperationTable&((uint32)1<<j))>0)&&((Input->u32KeyBlockTable&((uint32)1<<j))==0u))
+                if(((Input->u32KeyOperationTable&((int)1<<j))>0)&&((Input->u32KeyBlockTable&((int)1<<j))==0u))
                 {
                     if((KEY_stProperty[i].u8PriorityGroup)==(KEY_stProperty[j].u8PriorityGroup))/*in the same group*/
                     {
                         if((KEY_stProperty[i].u8PriorityLevel)>(KEY_stProperty[j].u8PriorityLevel))
                         {
-                            Output->u32KeyActionTable&=~((uint32)1<<i);
+                            Output->u32KeyActionTable&=~((int)1<<i);
                         }
                     }                    
                 }
